@@ -107,7 +107,8 @@ body {
     height: 290px;
   }
   body{
-    min-height: auto;
+    height: auto;
+    width: auto;
     overflow: hidden;
   }
 }
