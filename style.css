@@ -105,6 +105,6 @@ body {
   .clock {
     width: 290px;
     height: 290px;
-    overflow: none;
+    overflow: hidden;
   }
 }
