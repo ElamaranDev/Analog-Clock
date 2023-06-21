@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
 
+:root{
+  --dark-background-color : #091921;
+  --light-background-color: #d1dae3;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +15,13 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: top;
+  margin-top: 100px;
   min-height: 100vh;
   min-width: 400px;
-  background: #091921;
+  background: var(--dark-background-color);
+  overflow: hidden;
 }
-
 .clock {
   position: relative;
   display: flex;
@@ -23,7 +29,7 @@ body {
   align-items: center;
   width: 350px;
   height: 350px;
-  background: url(images/clock.png);
+  background:var(--dark-background-color) url(images/clock.png);
   background-size: cover;
   border-radius: 50%;
   border: 4px solid #091921;
@@ -31,6 +37,7 @@ body {
     inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
     inset 0 15px 15px rgba(0, 0, 0, 0.5);
 }
+
 .logo {
   display: flex;
   color: white;
@@ -111,4 +118,59 @@ body {
     min-width: 350px;
     overflow: hidden;
   }
+}
+.toggle-btn{
+  color: var(--light-background-color);
+  width: 20px;
+  height: 20px;
+  background: var(--light-background-color);
+  position: absolute;
+  bottom: -100px;
+  left: 35%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.toggle-btn::before{
+  position: absolute;
+  content: 'Light Mode';
+  font-size: 1rem;
+  left: 25px;
+  white-space: nowrap;
+}
+/* light theme */
+
+body.Light {
+  background: var(--light-background-color);
+}
+body.Light .clock{
+  background:var(--light-background-color) url(images/clock.png);
+  background-size: cover;
+  border: 4px solid #e7dbdb;
+  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.05),
+              10px 10px 10px rgba(0, 0, 0, 0.1), 
+              inset -8px -8px 15px rgba(255, 255, 255, 0.5),
+              inset 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+body.Light .logo{
+  color: var(--dark-background-color);
+}
+body.Light .clock::before{
+  background-color: #494040;
+}
+body.Light .min::before{
+  background-color: var(--dark-background-color);
+}
+body.Light .sec::before{
+  background-color: rgb(26, 6, 52);
+}
+body.Light .toggle-btn{
+  color: var(--dark-background-color);
+  background-color: var(--dark-background-color);
+}
+body.Light .toggle-btn::before{
+  position: absolute;
+  content: 'Dark Mode';
+  font-size: 1rem;
+  left: 25px;
+  white-space: nowrap;
 }
